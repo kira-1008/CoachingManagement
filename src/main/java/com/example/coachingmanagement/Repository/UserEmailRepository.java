@@ -7,8 +7,8 @@ import com.example.coachingmanagement.Models.UserEmail;
 import java.util.List;
 
 public interface UserEmailRepository {
-    public List<UserEmail> findByUsername(String username);
-    public void add(User user, String email);
-    public void remove(User user,String email);
-    public void edit(User user,String prevEmail,String email);
+    public List<String> findByUsernameString(String username);
+    public void add(String username, String email);
+    public void remove(String username,String email);
+    public void edit(String username,String prevEmail,String email);
 }

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
+    <title>Add Student</title>
+</head>
+<body>
+<div th:insert="homepage::navbar"></div>
+<div  th:if="${message != null}">
+    <div class="message" align="center"><th:block th:text="${message}"/></div>
+</div>
+<div class="container">
+    <form class="form-signin" th:action="@{/staff/add}" method="POST" th:object="${employee}">
+
+
+        <div class="form-group">
+            <label for="DOB">Date of Birth</label>
+            <input type="date" class="form-control" id="DOB"    name="date" th:value="${date}" required>
+
+        </div>
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" class="form-control" id="address"  placeholder="" th:field="*{address}" required>
+
+        </div>
+        <div class="form-group">
+            <label for="pincode">Pincode</label>
+            <input type="text" class="form-control" id="pincode"  placeholder="" th:field="*{pincode}" required>
+
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <input type="text" class="form-control" id="gender"  placeholder="" th:field="*{gender}" required >
+
+        </div>
+        <h3>Payment Details</h3>
+        <div class="form-group">
+            <label for="salary">Salary</label>
+            <input type="number" class="form-control" id="salary"  placeholder="" th:field="*{salary}" required>
+
+        </div>
+        <div class="form-group">
+            <label for="BankName">Bank Name</label>
+            <input type="text" class="form-control" id="BankName"  placeholder="" th:field="*{bankName}" required>
+
+        </div>
+        <div class="form-group">
+            <label for="IFSCcode">IFSC Code</label>
+            <input type="text" class="form-control" id="IFSCcode"  placeholder="" th:field="*{ifscCode}" required>
+
+        </div>
+        <div class="form-group">
+            <label for="BankAccount">Bank Account Number</label>
+            <input type="number" class="form-control" id="BankAccount"  placeholder="" th:field="*{bankAccountNumber}" required>
+
+        </div>
+        <div class="form-group">
+            <label for="PFNumber">PF Number</label>
+            <input type="text" class="form-control" id="PFNumber"  placeholder="" th:field="*{PFNumber}" required>
+
+        </div>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username"  placeholder="" th:field="*{username}" required >
+
+        </div>
+
+
+        <br>
+        <button type="submit" class="btn btn-success">Add Staff</button>
+
+    </form>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

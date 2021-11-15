@@ -6,8 +6,9 @@ import com.example.coachingmanagement.Models.UserPhoneNumber;
 import java.util.List;
 
 public interface UserPhoneRepository {
-    public List<UserPhoneNumber> findByUsername(String username);
-    public void add(User user,String number);
-    public void remove(User user,String number);
-    public void edit(User user,String prevNumber,String number);
+    public List<UserPhoneNumber> findByUsernameContacts(String username);
+    public void add(String username,String number);
+    public void remove(String username,String number);
+    public void edit(String username,String prevNumber,String number);
+    public List<String> findByUsernameNumbers(String username);
 }

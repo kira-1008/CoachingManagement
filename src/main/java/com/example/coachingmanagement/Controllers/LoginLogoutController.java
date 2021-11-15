@@ -1,6 +1,7 @@
 package com.example.coachingmanagement.Controllers;
 
 import com.example.coachingmanagement.Models.User;
+import com.example.coachingmanagement.Repository.UserRepository;
 import com.example.coachingmanagement.Services.SecurityService;
 import com.example.coachingmanagement.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,16 +13,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.security.Principal;
+
 @Controller
 public class LoginLogoutController {
 
     SecurityService securityService;
     UserService userService;
+    UserRepository userRepository;
 
    @Autowired
-    public LoginLogoutController(UserService userService,SecurityService securityService) {
+    public LoginLogoutController(UserService userService,SecurityService securityService,UserRepository userRepository) {
         this.userService = userService;
         this.securityService=securityService;
+        this.userRepository=userRepository;
     }
 
 
@@ -36,6 +41,7 @@ public class LoginLogoutController {
         User user=new User();
         model.addAttribute("user",user);
         model.addAttribute("existing_user",false);
+        model.addAttribute("loginStatus",false);
         return "register";
     }
 
@@ -53,7 +59,7 @@ public class LoginLogoutController {
         java.util.Date date=new java.util.Date();
         user.setCreationDate(new java.sql.Date(date.getTime()));
         userService.saveUser(user);
-        return "homepage";
+        return "redirect:/";
     }
 
     @GetMapping("/login")
@@ -67,6 +73,7 @@ public class LoginLogoutController {
         {
             model.addAttribute("errormessage","Either the password username combination is invalid or user does not exist");
         }
+        model.addAttribute("loginStatus",false);
         return "login";
     }
 

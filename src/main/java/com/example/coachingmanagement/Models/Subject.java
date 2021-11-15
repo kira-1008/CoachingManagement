@@ -3,12 +3,12 @@ package com.example.coachingmanagement.Models;
 public class Subject {
     int subjectId;
     String name;
-    String headOfDepartment;
+    Integer headOfDepartment;
 
     public Subject() {
     }
 
-    public Subject(int subjectId, String name, String headOfDepartment) {
+    public Subject(int subjectId, String name, int headOfDepartment) {
         this.subjectId = subjectId;
         this.name = name;
         this.headOfDepartment = headOfDepartment;
@@ -30,11 +30,11 @@ public class Subject {
         this.name = name;
     }
 
-    public String getHeadOfDepartment() {
+    public Integer getHeadOfDepartment() {
         return headOfDepartment;
     }
 
-    public void setHeadOfDepartment(String headOfDepartment) {
+    public void setHeadOfDepartment(Integer headOfDepartment) {
         this.headOfDepartment = headOfDepartment;
     }
 

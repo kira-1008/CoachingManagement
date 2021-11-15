@@ -1,0 +1,60 @@
+/* change the background color */
+body{
+    font-family: "Calibri";
+}
+
+h1,h2,h3{
+    font-family: Candara;
+}
+
+
+.navbar-custom {
+    background-color: #1955b5;
+    font-family: "Arial Rounded MT Bold";
+}
+
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: #c1cad9;
+}
+
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: #c1cad9;
+}
+
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:focus .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: pink;
+}
+
+
+    /* for dropdowns only */
+.navbar-custom .navbar-nav .dropdown-menu {
+    background-color: #c1cad9;
+}
+
+/* dropdown item text color */
+.navbar-custom .navbar-nav .dropdown-item {
+    color: #000000;
+}
+
+/* dropdown item hover or focus */
+.navbar-custom .navbar-nav .dropdown-item:hover,
+.navbar-custom .navbar-nav .dropdown-item:focus {
+    color: black;
+    background-color: pink;
+}
+
+.message{
+    color: red;
+    font-family: "Courier New";
+    font-size: medium;
+}
+
+.container{
+    margin-top: 20px;
+}

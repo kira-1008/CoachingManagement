@@ -1,6 +1,6 @@
 package com.example.coachingmanagement.Models;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Student {
     int rollNumber;
@@ -8,13 +8,13 @@ public class Student {
     Date dateOfBirth;
     String address;
     int pincode;
-    Character gender;
+    String gender;
     String username;
 
     public Student() {
     }
 
-    public Student(int rollNumber, int standard, Date dateOfBirth, String address, int pincode, Character gender, String username) {
+    public Student(int rollNumber, int standard, Date dateOfBirth, String address, int pincode, String gender, String username) {
         this.rollNumber = rollNumber;
         this.standard = standard;
         this.dateOfBirth = dateOfBirth;
@@ -77,11 +77,11 @@ public class Student {
         this.pincode = pincode;
     }
 
-    public Character getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(Character gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 

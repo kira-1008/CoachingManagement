@@ -15,6 +15,11 @@ public class User {
     Date lastLoginDate;
     Time lastLoginTime;
 
+    public Boolean isStaffOrAdmin(){
+        if(this.role.equalsIgnoreCase("staff") || this.role.equalsIgnoreCase("admin"))return true;
+        return false;
+    }
+
     public User() {
     }
 

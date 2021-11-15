@@ -44,18 +44,11 @@ public class UserRepositoryImpl implements UserRepository{
 
     @Override
     public User findByUsername(String username) {
-       System.err.print(username);
-        String sqlQuery="select * from user where username='"+username+"'";
-        User user =new User();
-        try{
-            user=jdbcTemplate.queryForObject(sqlQuery,rowMapper);
-        }
-        catch(EmptyResultDataAccessException e)
-        {
-              e.printStackTrace();
-              return null;
-        }
-        return user;
+
+        String sqlQuery="select * from user where username=?";
+        List<User> userList=jdbcTemplate.query(sqlQuery,new Object[]{username},rowMapper);
+        if(userList.isEmpty())return null;
+        return userList.get(0);
     }
 
     @Override
@@ -132,7 +125,7 @@ public class UserRepositoryImpl implements UserRepository{
 
     @Override
     public void delete(User user) {
-        String sqlQuery="delete from user where username=?'"+user.getUsername()+"'";
+        String sqlQuery="delete from user where username='"+user.getUsername()+"'";
         jdbcTemplate.execute(sqlQuery);
     }
 
@@ -140,6 +133,13 @@ public class UserRepositoryImpl implements UserRepository{
     public List<User> getAll(){
         String sqlQuery="select * from user";
         List<User> userList=jdbcTemplate.query(sqlQuery,new BeanPropertyRowMapper<>(User.class));
+        return userList;
+    }
+
+    @Override
+    public List<User> getNotVerifiedUsers() {
+        String sql="select * from user where is_active is null";
+        List<User> userList=jdbcTemplate.query(sql,rowMapper);
         return userList;
     }
 }

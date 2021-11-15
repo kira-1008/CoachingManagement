@@ -1,18 +1,18 @@
 package com.example.coachingmanagement.Models;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class StudentAttendance {
     int rollNumber;
     int batchId;
     Date date;
-    Boolean isPresent;
+    public boolean isPresent;
     String remarks;
 
     public StudentAttendance() {
     }
 
-    public StudentAttendance(int rollNumber, int batchId, Date date, Boolean isPresent, String remarks) {
+    public StudentAttendance(int rollNumber, int batchId, Date date, boolean isPresent, String remarks) {
         this.rollNumber = rollNumber;
         this.batchId = batchId;
         this.date = date;
@@ -44,11 +44,11 @@ public class StudentAttendance {
         this.date = date;
     }
 
-    public Boolean getPresent() {
+    public Boolean getIsPresent() {
         return isPresent;
     }
 
-    public void setPresent(Boolean present) {
+    public void setIsPresent(boolean present) {
         isPresent = present;
     }
 

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" th:href="@{/css/navbar.css}">
+  <style>
+    .outerDiv
+    {
+width:100%;
+    }
+    .leftDiv
+    {
+
+      width: 48%;
+      float: left;
+    }
+    .rightDiv
+    {
+
+      width: 48%;
+      float: right;
+    }
+  </style>
+  <title>Title</title>
+</head>
+<body>
+<div th:insert="homepage::navbar"></div>
+<div class="container">
+  <form class="form-signin" th:action="@{/batch/attendance/addAttendance}" method="POST">
+    <div class="form-group">
+      <label for="batchId">Batch</label>
+      <select class="form-control" id="batchId" name="batchId">
+       
+        <option th:each="b: ${batches}" th:value="${b.batchId}" th:text="${b.name}"></option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input type="date" class="form-control" id="date"  placeholder="" name="date" th:value="${date}" required>
+    </div>
+        <button type="submit" class="btn btn-success">Find</button>
+
+  </form>
+    <br>
+<div th:if="${batch}">
+    <form class="form-signin" th:action="@{/batch/attendance/addAttendance/{batch}/{date}/save(batch=${batch.batchId},date=${date})}"  method="post"  th:object=${studentAttendanceForm}>
+ <table  class="table">
+   <tr>
+     <th>Roll Number</th>
+     <th>Student Name</th>
+     <th>Is Present</th>
+     <th>Remarks</th>
+   </tr>
+   <tr th:each="studentAttendance,iter: *{studentAttendanceList}">
+
+     <td><input  readonly class="form-control" placeholder=""  th:field="*{studentAttendanceList[__${iter.index}__].rollNumber}"></td>
+     <td><th:block th:text="${studentList[__${iter.index}__]}"/></td>
+     <td><input class="form-control" placeholder=""  th:field="*{studentAttendanceList[__${iter.index}__].isPresent}" required></td>
+     <td><input class="form-control" placeholder=""  th:field="*{studentAttendanceList[__${iter.index}__].remarks}" ></td>
+
+   </tr>
+ </table>
+      <input type="submit" class="btn btn-success" th:value="Submit">
+    </form>
+</div>
+
+
+
+  </div>
+  <div align="center" th:unless="${studentAttendanceForm}">
+    No information found
+
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

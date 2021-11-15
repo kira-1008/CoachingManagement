@@ -1,11 +1,14 @@
 package com.example.coachingmanagement.Models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.sql.Time;
 import java.sql.Date;
 
 public class Test {
     int testNumber;
     String testName;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     Date testDate;
     Time startTime;
     Time endTime;

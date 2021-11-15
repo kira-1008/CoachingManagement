@@ -8,7 +8,7 @@ public class Teacher {
     public Teacher() {
     }
 
-    public Teacher(int teacherId, int employeeId, int subjectId) {
+    public Teacher(int teacherId, int employeeId, Integer subjectId) {
         this.teacherId = teacherId;
         this.employeeId = employeeId;
         this.subjectId = subjectId;

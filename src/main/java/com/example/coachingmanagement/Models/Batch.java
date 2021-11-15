@@ -1,40 +1,50 @@
 package com.example.coachingmanagement.Models;
 
 public class Batch {
-    int batchId;
-    String batchName;
-    int subjectId;
+    Integer batchId;
+    String name;
+    Integer subjectId;
+    Integer teacherId;
+
+    public Batch(Integer batchId, String name, Integer subjectId, Integer teacherId) {
+        this.batchId = batchId;
+        this.name = name;
+        this.subjectId = subjectId;
+        this.teacherId = teacherId;
+    }
 
     public Batch() {
     }
 
-    public Batch(int batchId, String batchName, int subjectId) {
-        this.batchId = batchId;
-        this.batchName = batchName;
-        this.subjectId = subjectId;
+    public Integer getTeacherId() {
+        return teacherId;
     }
 
-    public int getBatchId() {
+    public void setTeacherId(Integer teacherId) {
+        this.teacherId = teacherId;
+    }
+
+    public Integer getBatchId() {
         return batchId;
     }
 
-    public void setBatchId(int batchId) {
+    public void setBatchId(Integer batchId) {
         this.batchId = batchId;
     }
 
-    public String getBatchName() {
-        return batchName;
+    public String getName() {
+        return name;
     }
 
-    public void setBatchName(String batchName) {
-        this.batchName = batchName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getSubjectId() {
+    public Integer getSubjectId() {
         return subjectId;
     }
 
-    public void setSubjectId(int subjectId) {
+    public void setSubjectId(Integer subjectId) {
         this.subjectId = subjectId;
     }
 
@@ -42,8 +52,9 @@ public class Batch {
     public String toString() {
         return "Batch{" +
                 "batchId=" + batchId +
-                ", batchName='" + batchName + '\'' +
+                ", name='" + name + '\'' +
                 ", subjectId=" + subjectId +
+                ", teacherId=" + teacherId +
                 '}';
     }
 }
