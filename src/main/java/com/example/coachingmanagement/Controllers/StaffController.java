@@ -381,6 +381,9 @@ PayrollRepository payrollRepository;
         passLoggedInUser(null,redir);
         RedirectView redirectView=new RedirectView("/");
         String loggedUsername=securityService.findLoggedInUsername();
+        System.out.println(loggedUsername);
+        User user=userRepository.findByUsername(loggedUsername);
+        System.out.println("res" + user.isStaffOrAdmin());
         if(check()==false || loggedUsername.equals(username))
         {
             redir.addFlashAttribute("message","You do not have access to the requested page");

@@ -85,7 +85,7 @@ public class TeacherController {
         if(loggedInUSerName==null)return false;
         User user = userRepository.findByUsername(loggedInUSerName);
 
-        if(user!=null && (user.getRole().equalsIgnoreCase("Staff")||user.getRole().equalsIgnoreCase("Teacher")||user.getRole().equals("Admin")))return true;
+        if(user!=null && (user.getRole().equalsIgnoreCase("Staff")||user.getRole().equalsIgnoreCase("Teacher")||user.getRole().equalsIgnoreCase("Admin")))return true;
         return false;
     }
 
